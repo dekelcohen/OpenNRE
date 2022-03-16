@@ -18,7 +18,7 @@ def remove_substr(strng,substr):
 def convert_markers_to_positions(sent):
     """
     Convert RE formats from text-embedded markers [E1] --> head, tail positions as dicts
-    'The CEO of [E1]IBM[\E1] , [E2]Steve Cohen[\E2]'  --> {'text': 'The CEO of IBM , Steve Cohen', 'h': {'pos': (11, 14)},'t': {'pos': (17, 28)}}
+    Ex: 'The CEO of [E1]IBM[\E1] , [E2]Steve Cohen[\E2]'  --> {'text': 'The CEO of IBM , Steve Cohen', 'h': {'pos': (11, 14)},'t': {'pos': (17, 28)}}
     """
     sent_new = sent.replace('[\\','[/') # in case [\\E1] --> normalize to [/E1]
     s_e1,sent_new = remove_substr(sent_new,E1_S)
